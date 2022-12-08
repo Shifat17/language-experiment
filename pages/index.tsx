@@ -1,10 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import NextI18NextInstance from "../next.config";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 function Home() {
-  const { t } = NextI18NextInstance;
+  const { t } = useTranslation("common");
+  console.log("hello");
+
   return (
     <div className={styles.container}>
       <Head>
@@ -48,8 +51,7 @@ function Home() {
             rel="noopener noreferrer"
             className={styles.card}
           >
-            <h2>Deploy &rarr;</h2>
-            <p>t("description")</p>
+            <p>{t("description")}</p>
           </a>
         </div>
       </main>
