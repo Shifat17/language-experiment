@@ -1,8 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import NextI18NextInstance from "../next.config";
 
-export default function Home() {
+function Home() {
+  const { t } = NextI18NextInstance;
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +19,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
@@ -47,9 +49,7 @@ export default function Home() {
             className={styles.card}
           >
             <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <p>t("description")</p>
           </a>
         </div>
       </main>
@@ -60,12 +60,14 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
+  );
 }
+
+export default Home;
